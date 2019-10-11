@@ -7,7 +7,9 @@ const forecast=(latitude,longitude,callback)=>{
         }else  if(body.error){
             callback('unable to fine location.try again',undefined)
         }else{
-        callback(undefined,`current temparature is ${body.currently.temperature} degrees and chances of rain is ${body.currently.precipIntensity}%`)
+        console.log(body.daily.data[0]);
+            
+        callback(undefined,`current temparature is ${body.currently.temperature} degrees.This high today is ${body.daily.data[0].temperatureHigh} with low of ${body.daily.data[0].temperatureLow} degrees and chances of rain is ${body.currently.precipIntensity}%`)
     }
     })
 }
